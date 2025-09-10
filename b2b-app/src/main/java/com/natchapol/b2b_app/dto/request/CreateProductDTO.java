@@ -14,11 +14,11 @@ import java.math.BigDecimal;
 public class CreateProductDTO {
     @NotBlank(message = "Product name is required")
     private String name;
-    private String Description;
+    private String description;
 
     @Min(value = 1,message = "Product price must is at least 1")
     private BigDecimal price;
 
     @Min(value = 1, message = "Product stock must is at least 1")
-    private Long Stock;
+    private Long stock;
 }

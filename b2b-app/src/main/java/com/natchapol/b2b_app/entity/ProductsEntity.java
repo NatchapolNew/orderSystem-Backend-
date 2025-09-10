@@ -26,6 +26,7 @@ public class ProductsEntity {
     private String description;
     private BigDecimal price;
     private Long stock;
+    private String imgUrl;
 
     @OneToMany(mappedBy = "products",cascade = CascadeType.ALL)
     private List<OrderItemsEntity> orderItems =new ArrayList<>();
