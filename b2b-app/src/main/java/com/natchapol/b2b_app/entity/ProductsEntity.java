@@ -30,6 +30,10 @@ public class ProductsEntity {
     @OneToMany(mappedBy = "products",cascade = CascadeType.ALL)
     private List<OrderItemsEntity> orderItems =new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 }
