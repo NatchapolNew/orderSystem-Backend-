@@ -1,16 +1,18 @@
 package com.natchapol.b2b_app.dto.response;
-
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class ProductResponseDTO {
     private Long id;
     private String name;
-    private String Description;
+    private String description;
     private BigDecimal price;
-    private Long Stock;
+    private Long stock;
+    private String imgUrl;
 }

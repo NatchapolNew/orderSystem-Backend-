@@ -7,7 +7,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-09-10T14:23:39+0700",
+    date = "2025-09-11T10:55:03+0700",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 public class ProductMapperImpl implements ProductMapper {
@@ -25,6 +25,7 @@ public class ProductMapperImpl implements ProductMapper {
         productResponseDTO.setDescription( products.getDescription() );
         productResponseDTO.setPrice( products.getPrice() );
         productResponseDTO.setStock( products.getStock() );
+        productResponseDTO.setImgUrl( products.getImgUrl() );
 
         return productResponseDTO;
     }
@@ -41,6 +42,7 @@ public class ProductMapperImpl implements ProductMapper {
         productsEntity.description( createProductDTO.getDescription() );
         productsEntity.price( createProductDTO.getPrice() );
         productsEntity.stock( createProductDTO.getStock() );
+        productsEntity.imgUrl( createProductDTO.getImgUrl() );
 
         return productsEntity.build();
     }
