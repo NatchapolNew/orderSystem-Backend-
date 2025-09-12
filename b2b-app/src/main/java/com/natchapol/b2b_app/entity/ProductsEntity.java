@@ -31,7 +31,7 @@ public class ProductsEntity {
     @OneToMany(mappedBy = "products",cascade = CascadeType.ALL)
     private List<OrderItemsEntity> orderItems =new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
 

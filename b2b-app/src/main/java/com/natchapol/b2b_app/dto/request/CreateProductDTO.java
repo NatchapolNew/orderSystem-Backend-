@@ -21,6 +21,7 @@ public class CreateProductDTO {
 
     @Min(value = 1, message = "Product stock must is at least 1")
     private Long stock;
+    private Long categoryId;
 
     private String imgUrl;
 }
