@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/products")
@@ -50,7 +52,7 @@ public class ProductsController {
     }
 
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public ProductResponseDTO updatedProduct(@PathVariable Long id,@RequestPart("product")String productString,@RequestPart("file")MultipartFile file){
         ObjectMapper objectMapper = new ObjectMapper();
         UpdateProductDTO updateProductDTO = null;
@@ -66,5 +68,19 @@ public class ProductsController {
 
         return productResponseDTO;
     }
+
+    @GetMapping
+    public List<ProductResponseDTO> readAllProducts(){
+         List<ProductResponseDTO> productResponseDTO = productService.readAllProduct();
+        return productResponseDTO;
+    }
+
+    @GetMapping("/search")
+    public List<ProductResponseDTO> readProductByName(@RequestParam(value = "name",required = false) String name){
+        List<ProductResponseDTO> allProduct = productService.readProductByName(name);
+        return allProduct;
+    }
+
+
 
 }

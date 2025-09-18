@@ -1,6 +1,5 @@
 package com.natchapol.b2b_app.services.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.natchapol.b2b_app.dto.request.CreateProductDTO;
 import com.natchapol.b2b_app.dto.request.UpdateProductDTO;
 import com.natchapol.b2b_app.dto.response.ProductResponseDTO;
@@ -27,6 +26,8 @@ import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 import software.amazon.awssdk.services.s3.model.S3Exception;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -86,6 +87,21 @@ public class ProductServiceImpl implements ProductService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public List<ProductResponseDTO> readAllProduct() {
+        List<ProductsEntity> products = productsRepository.findAll();
+        List<ProductResponseDTO> allProducts = products.stream().map(product->ProductMapper.INSTANCE.toResponseDTO(product)).toList();
+
+        return allProducts;
+    }
+
+    @Override
+    public List<ProductResponseDTO> readProductByName(String name) {
+        List<ProductsEntity> products = productsRepository.findByNameIsContainingIgnoreCase(name);
+        List<ProductResponseDTO> allProducts = products.stream().map(product-> ProductMapper.INSTANCE.toResponseDTO(product)).toList();
+        return allProducts;
     }
 
 
