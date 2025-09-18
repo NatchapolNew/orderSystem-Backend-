@@ -119,11 +119,7 @@ public class ProductServiceImpl implements ProductService {
             updateProductDTO.setImgUrl(imgUrl);
         }
 
-        products.setName(updateProductDTO.getName());
-        products.setDescription(updateProductDTO.getDescription());
-        products.setStock(updateProductDTO.getStock());
-        products.setPrice(updateProductDTO.getPrice());
-        products.setImgUrl(updateProductDTO.getImgUrl());
+        ProductMapper.INSTANCE.updateEntityFromDto(updateProductDTO,products);
         products.setCategory(category);
 
         ProductsEntity productsEntity = productsRepository.save(products);

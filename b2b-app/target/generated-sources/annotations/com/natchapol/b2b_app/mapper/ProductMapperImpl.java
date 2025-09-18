@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-09-12T14:27:15+0700",
+    date = "2025-09-18T09:50:12+0700",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Eclipse Adoptium)"
 )
 public class ProductMapperImpl implements ProductMapper {
@@ -56,7 +56,6 @@ public class ProductMapperImpl implements ProductMapper {
 
         ProductsEntity.ProductsEntityBuilder productsEntity = ProductsEntity.builder();
 
-        productsEntity.id( updateProductDTO.getId() );
         productsEntity.name( updateProductDTO.getName() );
         productsEntity.description( updateProductDTO.getDescription() );
         productsEntity.price( updateProductDTO.getPrice() );
@@ -64,5 +63,18 @@ public class ProductMapperImpl implements ProductMapper {
         productsEntity.imgUrl( updateProductDTO.getImgUrl() );
 
         return productsEntity.build();
+    }
+
+    @Override
+    public void updateEntityFromDto(UpdateProductDTO updateProductDTO, ProductsEntity productsEntity) {
+        if ( updateProductDTO == null ) {
+            return;
+        }
+
+        productsEntity.setName( updateProductDTO.getName() );
+        productsEntity.setDescription( updateProductDTO.getDescription() );
+        productsEntity.setPrice( updateProductDTO.getPrice() );
+        productsEntity.setStock( updateProductDTO.getStock() );
+        productsEntity.setImgUrl( updateProductDTO.getImgUrl() );
     }
 }
