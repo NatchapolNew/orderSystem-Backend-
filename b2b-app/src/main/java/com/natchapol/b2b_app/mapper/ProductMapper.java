@@ -14,7 +14,6 @@ public interface ProductMapper{
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
     //แปลงentity -> response
-
     ProductResponseDTO toResponseDTO(ProductsEntity products);
 
     //แปลง dto->entiy

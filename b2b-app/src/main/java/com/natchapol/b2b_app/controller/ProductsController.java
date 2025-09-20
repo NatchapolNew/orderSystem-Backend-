@@ -40,7 +40,7 @@ public class ProductsController {
     };
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteProduct(@PathVariable Long id){
         boolean deleteProduct = productService.deleteProduct(id);
         if (deleteProduct == true){
@@ -53,7 +53,7 @@ public class ProductsController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductResponseDTO updatedProduct(@PathVariable Long id,@RequestPart("product")String productString,@RequestPart("file")MultipartFile file){
+    public ProductResponseDTO updatedProduct(@Valid @PathVariable Long id,@RequestPart("product")String productString,@RequestPart("file")MultipartFile file){
         ObjectMapper objectMapper = new ObjectMapper();
         UpdateProductDTO updateProductDTO = null;
         try {

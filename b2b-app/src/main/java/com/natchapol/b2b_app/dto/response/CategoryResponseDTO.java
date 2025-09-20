@@ -1,13 +1,13 @@
-package com.natchapol.b2b_app.dto.request;
-
+package com.natchapol.b2b_app.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeleteUserDTO {
+@Data
+public class CategoryResponseDTO {
     private Long id;
+    private String name;
 }

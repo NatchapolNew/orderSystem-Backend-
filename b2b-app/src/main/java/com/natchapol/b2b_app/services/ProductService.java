@@ -5,7 +5,6 @@ import com.natchapol.b2b_app.dto.request.UpdateProductDTO;
 import com.natchapol.b2b_app.dto.response.ProductResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import software.amazon.awssdk.services.s3.endpoints.internal.Value;
 
 import java.util.List;
 
